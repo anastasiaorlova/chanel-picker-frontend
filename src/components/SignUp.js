@@ -16,7 +16,7 @@ handleSubmit = e => {
 e.preventDefault()
 // TODO: make a fetch request to sign up the current user
 // then set that user in state in our App component
-fetch("http://localhost:3000/users", {
+fetch("http://localhost:3001/users", {
     method: "POST",
     credentials: "include",
     headers: {
@@ -31,7 +31,7 @@ fetch("http://localhost:3000/users", {
 }
 
 render() {
-const { username, image, bio, password } = this.state
+const { username, avatar, bio, password } = this.state
 
 return (
     <form onSubmit={this.handleSubmit}>
@@ -49,12 +49,12 @@ return (
     <label>Profile Image</label>
     <input
         type="text"
-        name="image"
+        name="avatar"
         autoComplete="off"
-        value={image}
+        value={avatar}
         onChange={this.handleChange}
     />
-    <img src={image.length ? image : "https://cdn.iconscout.com/icon/free/png-512/account-profile-avatar-man-circle-round-user-30452.png"} alt={username} />
+    <img src={avatar.length ? avatar : "https://cdn.iconscout.com/icon/free/png-512/account-profile-avatar-man-circle-round-user-30452.png"} alt={username} />
 
     <label>Bio</label>
     <textarea

@@ -1,6 +1,5 @@
 import React from 'react';
-import { Switch, Route, NavLink } from 'react-router-dom';
-import { withRouter, Redirect } from 'react-router-dom';
+import { Switch, Route, withRouter, Redirect } from 'react-router-dom';
 import './App.css'
 import AllBagsPage from './AllBagsPage';
 import NavBar from '../components/NavBar';
@@ -18,7 +17,7 @@ class App extends React.Component {
   componentDidMount() {
     // TODO: check if user is logged in
     // and set current user in state
-    fetch("http://localhost:3000/autologin", {
+    fetch("http://localhost:3001/autologin", {
       credentials: "include"
     })
       .then(r => {
@@ -46,7 +45,7 @@ class App extends React.Component {
   }
 
   handleLogout = () => {
-    fetch("http://localhost:3000/logout", {
+    fetch("http://localhost:3001/logout", {
       credentials: "include"
     })
       .then(r => r.json())
@@ -56,47 +55,8 @@ class App extends React.Component {
         })
       })
   }
-
-  // Navbar = () =>
-  //   <div>
-  //     <NavLink
-  //       to="/"
-  //       /* set exact so it knows to only set activeStyle when route is deeply equal to link */
-  //       exact
-  //       /* add styling to Navlink */
-  //       style={{
-  //       width: '100px',
-  //       padding: '12px',
-  //       margin: '0 6px 6px',
-  //       background: 'black',
-  //       textDecoration: 'none',
-  //       color: 'white'
-  //     }}
-  //       /* add prop for activeStyle */
-  //       activeStyle={{
-  //         background: 'darkgray',
-  //         color: 'white'
-  //       }}
-  //     >Choose a bag</NavLink>
-  //     <NavLink
-  //       to="/quiz"
-  //       exact
-  //       style={{
-  //       width: '100px',
-  //       padding: '12px',
-  //       margin: '0 6px 6px',
-  //       background: 'black',
-  //       textDecoration: 'none',
-  //       color: 'white',
-  //       }}
-  //       activeStyle={{
-  //         background: 'darkgray',
-  //         color: 'white'
-  //       }}
-  //     >Take a quiz!</NavLink>  
-  //   </div>;
-
-    render() {
+  
+  render() {
       return (
         <>
         <NavBar currentUser={this.state.currentUser} handleLogout={this.handleLogout} />
@@ -121,37 +81,11 @@ class App extends React.Component {
           </Switch>
         </main>
       </>
-
-
-
-
-
-
-
-
-
-
-
-
-
-        // <div className="App">
-        // <Navbar />
-        //   <Switch>
-        //   <Route exact path="/" render={() => <AllBagsPage /> } />
-        //   </Switch>
-        // </div>
       );
     }
 }
 
-
-  
-
-  
-    
-    
-
-export default App;
+export default withRouter(App);
 
 
   
