@@ -46,19 +46,23 @@ class BagsContainer extends React.Component {
         let sortedBags = [...this.props.bags] 
         if (this.state.showClassic) {
             sortedBags = this.props.bags.filter(bag => bag.style === "Classic")
-        }  
+        } 
         if (this.state.showBoy) {
             sortedBags = this.props.bags.filter(bag => bag.style === "Boy")
-        }  
+        } 
         if (this.state.showGabrielle) {
             sortedBags = this.props.bags.filter(bag => bag.style === "Gabrielle")
         }  
         if (this.state.showCollection) {
             sortedBags = this.props.bags.filter(bag => bag.style === "Collection")
-        }
+        } 
         if (this.state.showAll) {
             sortedBags = this.props.bags
-}
+        }
+        if (!this.state.showClassic && !this.state.showBoy && !this.state.showGabrielle && !this.state.showCollection && !this.state.showAll) {
+            return false 
+        } 
+
         return sortedBags.map (bag => 
             <BagsCard 
             key={bag.id}

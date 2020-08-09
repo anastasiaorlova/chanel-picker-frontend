@@ -7,10 +7,23 @@ class BagsCard extends React.Component {
     }
 
 handleUpdateLikes = () => {
+    let newLikes = this.state.likes + 1
     this.setState({
-        likes: this.state.likes + 1
+        likes: newLikes
     })
+    fetch(`http://localhost:3001/bags/${this.props.id}/likes`, {
+        method: "PATCH",
+        headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+        },
+        body: JSON.stringify({
+            likes: this.state.likes
+        })
+        })
     }
+
+
 
     render() {
         const { image, description, style} = this.props
