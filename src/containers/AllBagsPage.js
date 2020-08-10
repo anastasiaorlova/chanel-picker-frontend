@@ -8,7 +8,9 @@ class AllBagsPage extends React.Component {
     }
 
     componentDidMount() {
-        fetch(`http://localhost:3001/bags`)
+        fetch(`http://localhost:3001/bags`, {
+            credentials: "include"
+        })
         .then(r => r.json())
         .then(bags => {
             this.setState({

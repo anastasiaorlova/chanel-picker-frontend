@@ -57,3 +57,14 @@ form input[type="submit"] {
 form img {
   width: 150px;
 }
+
+.myBags {
+  background-color: lightgray;
+  border: 1px solid darkgray;
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin: 0 auto;
+  padding: 0 1rem 1rem;
+}
+

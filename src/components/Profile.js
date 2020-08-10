@@ -12,7 +12,6 @@ this.setState({ [e.target.name]: e.target.value })
 
 handleSubmit = e => {
 e.preventDefault()
-// TODO: make a fetch request to edit the current user
 fetch("http://localhost:3001/profile", {
     method: "PATCH",
     credentials: "include",
@@ -23,17 +22,20 @@ fetch("http://localhost:3001/profile", {
 })
     .then(r => r.json())
     .then(updatedUser => {
-    // then update that user in state in our App component
     this.props.updateUser(updatedUser)
     })
 }
+
+// user.bags.each do |bag|
+// bag.avatar
+// end
 
 render() {
 const { avatar, bio } = this.state
 const { username } = this.props.currentUser
 
 return (
-    <form onSubmit={this.handleSubmit}>
+    <div><form onSubmit={this.handleSubmit}>
     <h1>{username}'s Profile</h1>
 
     <label>Profile Image</label>
@@ -55,6 +57,8 @@ return (
 
     <input type="submit" value="Update" />
     </form>
+    <label className="myBags"><h1>Favorite bags</h1></label>
+    </div>
 )
 }
 }

@@ -6,6 +6,8 @@ import NavBar from '../components/NavBar';
 import SignUp from '../components/SignUp';
 import Login from '../components/Login';
 import Profile from '../components/Profile';
+import Quiz from '../components/Quiz';
+
 
 class App extends React.Component { 
 
@@ -13,10 +15,7 @@ class App extends React.Component {
     currentUser: null
   }
 
-   // log user in when component mounts
   componentDidMount() {
-    // TODO: check if user is logged in
-    // and set current user in state
     fetch("http://localhost:3001/autologin", {
       credentials: "include"
     })
@@ -63,6 +62,7 @@ class App extends React.Component {
         <main>
           <Switch>
             <Route exact path="/bags"  render={() => <AllBagsPage />} />
+            <Route exact path="/quiz"  render={() => <Quiz />} />
             <Route exact path="/signup">
               <SignUp handleLogin={this.handleLogin} />
             </Route>
@@ -75,7 +75,7 @@ class App extends React.Component {
             <Route exact path="/home">
               {this.state.currentUser ? <h1>Welcome, {this.state.currentUser.username}</h1> : <Redirect to='/' />}
             </Route>
-            <Route path="/">
+            <Route exact path="/">
               <h1>Please Login or Sign Up</h1>
             </Route>
           </Switch>
