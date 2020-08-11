@@ -3,7 +3,8 @@ import React from 'react';
 class BagsCard extends React.Component {
 
     state = {
-        likes: this.props.likes
+        likes: this.props.likes,
+        favorites: []
     }
 
 handleUpdateLikes = () => {
@@ -23,7 +24,19 @@ handleUpdateLikes = () => {
         })
     }
 
+addFavorite = favorite => {
+    const { favorites } = this.state;
 
+    if (!favorites.some(alreadyFavorite => alreadyFavorite.id == favorite.id)) {
+        this.setState({
+        favorites: [...this.state.favorites, favorite]
+        });
+    }
+    };
+
+// user.bags.each do |bag|
+// bag.avatar
+// end
 
     render() {
         const { image, description, style} = this.props
@@ -34,6 +47,7 @@ handleUpdateLikes = () => {
                     <p>Description: {description} </p>
                     <p>Style: {style} </p>
                     <button onClick={this.handleUpdateLikes}> {likes} <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/237/heavy-black-heart_2764.png" alt="heart" width="10" height="10" /> </button>
+                    <button onClick={this.addFavorite}> <img src="https://twemoji.maxcdn.com/2/svg/2714.svg" alt="add" width="10" height="10" /></button>
                 </div>
         )
     }

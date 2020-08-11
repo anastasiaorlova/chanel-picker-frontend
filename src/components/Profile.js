@@ -26,10 +26,6 @@ fetch("http://localhost:3001/profile", {
     })
 }
 
-// user.bags.each do |bag|
-// bag.avatar
-// end
-
 render() {
 const { avatar, bio } = this.state
 const { username } = this.props.currentUser
@@ -57,7 +53,10 @@ return (
 
     <input type="submit" value="Update" />
     </form>
-    <label className="myBags"><h1>Favorite bags</h1></label>
+    <label className="myBags"><h1>Favorite bags</h1>
+    <button> Delete</button>
+    </label>
+    
     </div>
 )
 }

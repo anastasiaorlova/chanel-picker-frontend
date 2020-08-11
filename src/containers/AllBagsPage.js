@@ -4,7 +4,7 @@ import BagsContainer from './BagsContainer';
 class AllBagsPage extends React.Component {
 
     state ={
-        bags: [],
+        bags: []
     }
 
     componentDidMount() {
