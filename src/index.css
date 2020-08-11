@@ -41,7 +41,7 @@ form {
   border: 1px solid darkgray;
   display: flex;
   flex-direction: column;
-  width: 400px;
+  width: 600px;
   margin: 0 auto;
   padding: 0 1rem 1rem;
 }
@@ -63,7 +63,7 @@ form img {
   border: 1px solid darkgray;
   display: flex;
   flex-direction: column;
-  width: 400px;
+  width: 600px;
   margin: 0 auto;
   padding: 0 1rem 1rem;
 }

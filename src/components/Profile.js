@@ -26,9 +26,25 @@ fetch("http://localhost:3001/profile", {
     })
 }
 
+handleFaves = () => {
+    const favedBags = this.props.faves.map(bag => {
+    return <img src={bag.image} alt="bag" width="550" height="300" />
+    })
+    return favedBags
+}
+
+// handleDelete = () => {
+//     const deletedId = this.props.faves.map(bag => {
+//         return bag.id 
+//     })
+//     return deletedId
+// }
+
 render() {
+console.log(this.props.faves)
 const { avatar, bio } = this.state
 const { username } = this.props.currentUser
+const { id } = this.props.faves
 
 return (
     <div><form onSubmit={this.handleSubmit}>
@@ -54,7 +70,9 @@ return (
     <input type="submit" value="Update" />
     </form>
     <label className="myBags"><h1>Favorite bags</h1>
-    <button> Delete</button>
+    {this.handleFaves()}
+
+    <button onClick={() => {this.props.removeFavorite(id)}}>Delete</button>
     </label>
     
     </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route, withRouter, Redirect } from 'react-router-dom';
 import './App.css'
-import AllBagsPage from './AllBagsPage';
+import BagsContainer from './BagsContainer';
 import NavBar from '../components/NavBar';
 import SignUp from '../components/SignUp';
 import Login from '../components/Login';
@@ -12,25 +12,39 @@ import Quiz from '../components/Quiz';
 class App extends React.Component { 
 
   state = {
+    bags: [],
+    faves: [],
     currentUser: null
   }
 
   componentDidMount() {
-    fetch("http://localhost:3001/autologin", {
-      credentials: "include"
+    fetch(`http://localhost:3001/bags`, {
+        credentials: "include"
     })
-      .then(r => {
-        if (r.ok) {
-          return r.json()
-        } else {
-          throw Error("Not logged in!")
-        }
+    .then(r => r.json())
+    .then(bags => {
+        this.setState({
+            bags,
+
+        })
+    })
+
+    fetch("http://localhost:3001/autologin", {
+        credentials: "include"
       })
-      .then(user => {
-        this.handleLogin(user)
-      })
-      .catch((err) => console.error(err))
-  }
+        .then(r => {
+          if (r.ok) {
+            return r.json()
+          } else {
+            throw Error("Not logged in!")
+          }
+        })
+        .then(user => {
+          this.handleLogin(user)
+        })
+        .catch((err) => console.error(err))
+}
+
 
   updateUser = newUser => {
     this.setState({ currentUser: newUser })
@@ -54,6 +68,27 @@ class App extends React.Component {
         })
       })
   }
+
+  addFavorite = newFave => {
+    this.setState(prevState => ({
+      faves: [...prevState.faves, newFave]
+    })
+    )
+    }
+
+  removeFavorite = id => {
+      const updatedFaves = this.state.faves.filter(fave => {
+        if (fave.id !== id) {
+          return true
+        } else {
+          return false
+        }
+      })
+  
+      this.setState({
+        faves: updatedFaves
+      })
+    }
   
   render() {
       return (
@@ -61,7 +96,7 @@ class App extends React.Component {
         <NavBar currentUser={this.state.currentUser} handleLogout={this.handleLogout} />
         <main>
           <Switch>
-            <Route exact path="/bags"  render={() => <AllBagsPage />} />
+            <Route exact path="/bags"  render={() => <BagsContainer bags={this.state.bags} addFavorite={this.addFavorite} />} />
             <Route exact path="/quiz"  render={() => <Quiz />} />
             <Route exact path="/signup">
               <SignUp handleLogin={this.handleLogin} />
@@ -70,7 +105,7 @@ class App extends React.Component {
               <Login handleLogin={this.handleLogin} />
             </Route>
             <Route exact path="/profile">
-              {this.state.currentUser ? <Profile currentUser={this.state.currentUser} updateUser={this.updateUser} /> : <Redirect to='/' />}
+              {this.state.currentUser ? <Profile currentUser={this.state.currentUser} updateUser={this.updateUser} faves={this.state.faves} removeFavorite={this.removeFavorite} /> : <Redirect to='/' />}
             </Route>
             <Route exact path="/home">
               {this.state.currentUser ? <h1>Welcome, {this.state.currentUser.username}</h1> : <Redirect to='/' />}
@@ -80,6 +115,7 @@ class App extends React.Component {
             </Route>
           </Switch>
         </main>
+        
       </>
       );
     }

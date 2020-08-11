@@ -31,7 +31,7 @@ return(
 
         {
         this.state.dataQuestion.map( data => {
-        console.log( data);
+        // console.log( data);
         return <div key={ data.id} className="card"> 
                     <h2> { data.quiz}</h2> 
                     <Answer key={ data.id} rightAnaswer={ data.rightAnaswer} anwer={ data.FindAnswer} />

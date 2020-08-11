@@ -71,6 +71,7 @@ class BagsContainer extends React.Component {
             description={bag.description}
             style={bag.style}
             likes={bag.likes}
+            addFavorite={this.props.addFavorite}
             />)
     }
     
