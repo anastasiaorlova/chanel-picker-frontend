@@ -26,25 +26,29 @@ fetch("http://localhost:3001/profile", {
     })
 }
 
+handleDelete = (bag_id) => {
+    fetch(`http://localhost:3001/user_bags/${bag_id}`, {
+        method: "DELETE",
+        credentials: "include",
+        })
+        this.props.removeFavorite(bag_id)
+    }
+
 handleFaves = () => {
     const favedBags = this.props.faves.map(bag => {
-    return <img src={bag.image} alt="bag" width="550" height="300" />
+        return <div>
+        <img src={bag.image} alt="bag" width="550" height="300" />
+        <button onClick={()=> this.handleDelete(bag.id)}>Delete</button>
+        </div>
     })
     return favedBags
-}
+    }
 
-// handleDelete = () => {
-//     const deletedId = this.props.faves.map(bag => {
-//         return bag.id 
-//     })
-//     return deletedId
-// }
 
 render() {
-console.log(this.props.faves)
+
 const { avatar, bio } = this.state
 const { username } = this.props.currentUser
-const { id } = this.props.faves
 
 return (
     <div><form onSubmit={this.handleSubmit}>
@@ -69,15 +73,15 @@ return (
 
     <input type="submit" value="Update" />
     </form>
-    <label className="myBags"><h1>Favorite bags</h1>
+    <label className="myBags" ><h1>Favorite bags</h1>
+    <br></br>
     {this.handleFaves()}
-
-    <button onClick={() => {this.props.removeFavorite(id)}}>Delete</button>
+    <br></br>
     </label>
-    
     </div>
 )
 }
 }
 
 export default Profile
+

@@ -25,8 +25,10 @@ handleUpdateLikes = () => {
     }
 
     render() {
+        // console.log(this.props)
         const { id, image, description, style, addFavorite} = this.props
         const { likes } = this.state
+    
         return (
             <div className="bag">
                 <img src={image} alt={id} width="550"  /> 

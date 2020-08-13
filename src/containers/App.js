@@ -25,10 +25,8 @@ class App extends React.Component {
     .then(bags => {
         this.setState({
             bags,
-
         })
     })
-
     fetch("http://localhost:3001/autologin", {
         credentials: "include"
       })
@@ -41,6 +39,10 @@ class App extends React.Component {
         })
         .then(user => {
           this.handleLogin(user)
+          // this part
+          this.setState({
+            faves: user.bags
+          })
         })
         .catch((err) => console.error(err))
 }
@@ -70,9 +72,20 @@ class App extends React.Component {
   }
 
   addFavorite = newFave => {
-    this.setState(prevState => ({
-      faves: [...prevState.faves, newFave]
-    })
+    fetch("http://localhost:3001/user_bags", {
+    method: "POST",
+    credentials: "include",
+    headers: {
+    "Content-Type": "application/json"
+    },
+    body: JSON.stringify(newFave)
+})
+    .then(r => r.json())
+    .then(newFavorite => {
+      this.setState(prevState => ({
+          faves: [...prevState.faves, newFavorite]
+        })
+        )}
     )
     }
 
@@ -84,7 +97,6 @@ class App extends React.Component {
           return false
         }
       })
-  
       this.setState({
         faves: updatedFaves
       })
