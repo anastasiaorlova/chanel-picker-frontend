@@ -34,7 +34,7 @@ render() {
 const { username, avatar, bio, password } = this.state
 
 return (
-    <form onSubmit={this.handleSubmit}>
+    <form className="signup" onSubmit={this.handleSubmit}>
     <h1>Signup</h1>
 
     <label>Username</label>

@@ -30,7 +30,7 @@ fetch("http://localhost:3001/login", {
 
 render() {
 return (
-    <form onSubmit={this.handleSubmit}>
+    <form className="signup" onSubmit={this.handleSubmit}>
     <h1>Login</h1>
     <label>Username</label>
     <input type="text" name="username" autoComplete="off" value={this.state.username} onChange={this.handleChange} />

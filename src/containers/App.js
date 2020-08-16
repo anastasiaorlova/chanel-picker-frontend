@@ -108,8 +108,6 @@ class App extends React.Component {
         <NavBar currentUser={this.state.currentUser} handleLogout={this.handleLogout} />
         <main>
           <Switch>
-            <Route exact path="/bags"  render={() => <BagsContainer bags={this.state.bags} addFavorite={this.addFavorite} />} />
-            <Route exact path="/quiz"  render={() => <Quiz />} />
             <Route exact path="/signup">
               <SignUp handleLogin={this.handleLogin} />
             </Route>
@@ -119,17 +117,22 @@ class App extends React.Component {
             <Route exact path="/profile">
               {this.state.currentUser ? <Profile currentUser={this.state.currentUser} updateUser={this.updateUser} faves={this.state.faves} removeFavorite={this.removeFavorite} /> : <Redirect to='/' />}
             </Route>
+            <Route exact path="/bags"  render={() => <BagsContainer bags={this.state.bags} addFavorite={this.addFavorite} />} />
+            <Route exact path="/quiz"  render={() => <Quiz />} />
             <Route exact path="/home">
-              {this.state.currentUser ? <h1>Welcome, {this.state.currentUser.username}</h1> : <Redirect to='/' />}
+              {this.state.currentUser ? <div><h1>Welcome, {this.state.currentUser.username}</h1> 
+              <img src="https://i.imgur.com/6A5pEW3.jpg" alt="bag" />
+              </div>
+              : <Redirect to='/' />}
             </Route>
             <Route exact path="/">
-              <h1>Please Login or Sign Up</h1>
+              <img src="https://i.imgur.com/2z1DV0N.jpg" alt="front" />
             </Route>
           </Switch>
         </main>
         
       </>
-      );
+      )
     }
 }
 
