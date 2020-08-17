@@ -34,7 +34,8 @@ render() {
 const { username, avatar, bio, password } = this.state
 
 return (
-    <form className="signup" onSubmit={this.handleSubmit}>
+
+    <form className="signup" onSubmit={this.handleSubmit}> 
     <h1>Signup</h1>
 
     <label>Username</label>
@@ -73,9 +74,14 @@ return (
     />
 
     <input type="submit" value="Signup" />
+    
+    
     </form>
+  
 )
 }
 }
 
 export default SignUp
+
+

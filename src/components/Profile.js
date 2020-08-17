@@ -36,9 +36,10 @@ handleDelete = (bag_id) => {
 
 handleFaves = () => {
     const favedBags = this.props.faves.map(bag => {
-        return <div>
-        <img src={bag.image} alt="bag" width="550" height="300" />
-        <button onClick={()=> this.handleDelete(bag.id)}>Delete</button>
+        return <div className="faves">
+        <img src={bag.image} alt="bag" width="550" />
+        <br></br>
+        <button className="delete" onClick={()=> this.handleDelete(bag.id)}>Delete</button>
         </div>
     })
     return favedBags
@@ -54,7 +55,7 @@ return (
     <div><form onSubmit={this.handleSubmit}>
     <h1>{username}'s Profile</h1>
 
-    <label>Profile Image</label>
+    <label>Profile Image:</label>
     <input
         type="text"
         name="avatar"
@@ -64,7 +65,7 @@ return (
     />
     <img src={avatar.length ? avatar : "https://cdn.iconscout.com/icon/free/png-512/account-profile-avatar-man-circle-round-user-30452.png"} alt={username} />
 
-    <label>Bio</label>
+    <label>Bio:</label>
     <textarea
         name="bio"
         value={bio}
@@ -73,6 +74,7 @@ return (
 
     <input type="submit" value="Update" />
     </form>
+
     <label className="myBags" ><h1>Favorite bags</h1>
     <br></br>
     {this.handleFaves()}

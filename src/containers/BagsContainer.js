@@ -77,8 +77,8 @@ class BagsContainer extends React.Component {
     
     render() {
         return (
-            <div>
-                <h1>CHANEL HANDBAGS PICKER</h1>
+            <div className="gridBags" >
+                <h1>IF...</h1>
                 <Filter 
                 toggleClassic={this.toggleClassic}
                 toggleBoy={this.toggleBoy}

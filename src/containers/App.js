@@ -14,7 +14,8 @@ class App extends React.Component {
   state = {
     bags: [],
     faves: [],
-    currentUser: null
+    currentUser: null,
+    showPopup: false
   }
 
   componentDidMount() {
@@ -101,6 +102,12 @@ class App extends React.Component {
         faves: updatedFaves
       })
     }
+
+  togglePopup =() => {  
+    this.setState({  
+          showPopup: !this.state.showPopup  
+    });  
+      }  
   
   render() {
       return (

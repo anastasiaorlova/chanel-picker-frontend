@@ -3,8 +3,9 @@
 .card{
 height: auto;
 font-size: 30px;
-background-color: grey;
-color: white;
+background-color: transparent;
+color: black;
+border: 1px solid darkgrey;
 margin:auto;
 width: 700px;
 padding:10px;
