@@ -266,3 +266,82 @@ label {
   font-weight: 600px;
 }
 
+h3 {
+font-family: Cinzel; 
+font: 24px;
+color: darkred;
+font-weight: bold;
+}
+
+span {
+font-family: Cinzel; 
+font-size:14px;
+font-weight: bold;
+}
+
+h4 {
+font-family: Cinzel; 
+font-size:16px;
+font-weight: bold;
+}
+
+
+.result {
+font-family: Cinzel; 
+font-size:14px;
+font-weight: bold;
+margin-top: 20px;
+}
+
+.options {
+font-family: Cinzel; 
+font-size:14px;
+font-weight: bold;
+cursor: pointer;
+border: 2px solid black;
+padding: 10px;
+}
+
+.selected {
+background: linear-gradient(to right, #c42317, white) !important;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.next {
+  width: 25%;
+  font-family: Cinzel; 
+  font-size:14px;
+  font-weight: bold;
+  border: 2px solid black;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  border-color:black;
+  color: black;
+}
+
+.next:hover {
+  background-color:black;
+  color: white;
+}
+
+.finish {
+  width: 25%;
+  font-family: Cinzel; 
+  font-size:14px;
+  font-weight: bold;
+  border: 2px solid darkred;
+  background-color: white;
+  color: rgb(131, 10, 10);
+  cursor: pointer;
+  border-color: rgb(131, 10, 10);
+  color: rgb(131, 10, 10);
+}
+
+.finish:hover {
+  background-color:rgb(131, 10, 10);
+  color: white;
+}

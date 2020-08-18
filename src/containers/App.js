@@ -6,16 +6,15 @@ import NavBar from '../components/NavBar';
 import SignUp from '../components/SignUp';
 import Login from '../components/Login';
 import Profile from '../components/Profile';
-import Quiz from '../components/Quiz';
+import MainQuiz from '../components/MainQuiz';
 
 
 class App extends React.Component { 
-
-  state = {
+  
+state = {
     bags: [],
     faves: [],
-    currentUser: null,
-    showPopup: false
+    currentUser: null
   }
 
   componentDidMount() {
@@ -47,7 +46,6 @@ class App extends React.Component {
         })
         .catch((err) => console.error(err))
 }
-
 
   updateUser = newUser => {
     this.setState({ currentUser: newUser })
@@ -103,12 +101,6 @@ class App extends React.Component {
       })
     }
 
-  togglePopup =() => {  
-    this.setState({  
-          showPopup: !this.state.showPopup  
-    });  
-      }  
-  
   render() {
       return (
         <>
@@ -125,9 +117,10 @@ class App extends React.Component {
               {this.state.currentUser ? <Profile currentUser={this.state.currentUser} updateUser={this.updateUser} faves={this.state.faves} removeFavorite={this.removeFavorite} /> : <Redirect to='/' />}
             </Route>
             <Route exact path="/bags"  render={() => <BagsContainer bags={this.state.bags} addFavorite={this.addFavorite} />} />
-            <Route exact path="/quiz"  render={() => <Quiz />} />
+            <Route exact path="/quiz"  render={() => <MainQuiz />} />
             <Route exact path="/home">
               {this.state.currentUser ? <div><h1>Welcome, {this.state.currentUser.username}</h1> 
+              <br></br>
               <img src="https://i.imgur.com/6A5pEW3.jpg" alt="bag" />
               </div>
               : <Redirect to='/' />}
