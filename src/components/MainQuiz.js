@@ -83,7 +83,7 @@ if (isEnd) {
         <ul>
             {quizdata.map((item, index) => (
             <li className="ui floating message options" key={index}>
-                {item.answer}
+                <i className="i">{item.question}</i> - {item.answer}
             </li>
             ))}
         </ul>
@@ -94,7 +94,7 @@ if (isEnd) {
     return (
     <div className="App">
         <h3>{this.state.questions} </h3>
-        <span>{`Questions ${currentQuestion}  out of ${quizdata.length -
+        <span>{`Questions ${currentQuestion} out of ${quizdata.length -
         1} remaining `}</span>
         {options.map(option => (
         <p

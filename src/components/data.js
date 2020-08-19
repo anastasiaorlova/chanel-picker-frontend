@@ -1,7 +1,5 @@
 const quizdata=[
 
-
-
 {
     id:0,
     question:"Why Chanel 2.55 Handbag is called so?",

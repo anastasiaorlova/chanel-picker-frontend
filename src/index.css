@@ -308,6 +308,12 @@ background: linear-gradient(to right, #c42317, white) !important;
 
 ul {
   list-style-type: none;
+  padding: 20px;
+  margin: 20px;
+}
+
+.i {
+  color: red;
 }
 
 .next {

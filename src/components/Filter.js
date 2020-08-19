@@ -4,8 +4,8 @@ class Filter extends React.Component {
 
     render() {
         return (
-<div class="grid-container">
-    <div class="text">
+<div className="grid-container">
+    <div className="text">
         <p>
         <li>You love flap bags</li>
         <li>You prefer chic, classic and elegant style</li>
@@ -13,7 +13,7 @@ class Filter extends React.Component {
         </p>
         <button className="bagsBtn" onClick={this.props.toggleClassic}>Show Classic Bags</button>
     </div>
-    <div class="text">
+    <div className="text">
         <p>
         <li>You’re up for young, bold and slightly arrogant look</li>
         <li>You need something to go with casual look</li>
@@ -21,7 +21,7 @@ class Filter extends React.Component {
         </p>
         <button className="bagsBtn" onClick={this.props.toggleBoy}>Show Boy Bags</button>
     </div>
-    <div class="text">
+    <div className="text">
         <p>
         <li>You love chains and straps</li> 
         <li>You don’t mind unusual - but anyway well-recognizable - shape  </li>
@@ -29,7 +29,7 @@ class Filter extends React.Component {
         </p>
         <button className="bagsBtn" onClick={this.props.toggleGabrielle}>Show Gabrielle Bags</button>
     </div>
-    <div class="text">
+    <div className="text">
         <p>
         <li>You’re not just an admirer but a collector</li>
         <li>You love whimsical fabrics and shapes </li>
@@ -37,7 +37,7 @@ class Filter extends React.Component {
         </p>
         <button className="bagsBtn" onClick={this.props.toggleCollection}>Show Collection Bags</button>
     </div>
-    <div class="text">
+    <div className="text">
         <p>
         <li>You’re open to anything!</li>
         </p>
