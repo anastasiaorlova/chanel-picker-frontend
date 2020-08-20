@@ -77,7 +77,7 @@ if (isEnd) {
     return (
     <div className="result">
         <center><img src="https://i.imgur.com/3F58yJh.png" alt="red" width="500"/></center>
-        <h3>You did it! Your final score is {this.state.score} points </h3>
+        <h3>You did it! Your final score is {this.state.score} points!</h3>
         <div>
         <h4>The correct answers for the questions were...</h4>
         <ul>

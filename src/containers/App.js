@@ -8,7 +8,6 @@ import Login from '../components/Login';
 import Profile from '../components/Profile';
 import MainQuiz from '../components/MainQuiz';
 
-
 class App extends React.Component { 
   
 state = {

@@ -35,7 +35,7 @@ handleUpdateLikes = () => {
                     <p>{description} </p>
 
                     <button className="like" onClick={this.handleUpdateLikes}> {likes} liked</button>
-                    <button className="add" onClick = {() => addFavorite(this.props)}><span>Add To Favorite</span></button>
+                    <button className="add" onClick = {() => addFavorite(this.props)}><span>Add To Wish List</span></button>
                 </div>
         )
     }

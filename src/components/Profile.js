@@ -3,7 +3,8 @@ import React from 'react'
 class Profile extends React.Component {
 state = {
 avatar: this.props.currentUser.avatar,
-bio: this.props.currentUser.bio
+bio: this.props.currentUser.bio,
+comment: ""
 }
 
 handleChange = e => {
@@ -75,7 +76,7 @@ return (
     <input type="submit" value="Update" />
     </form>
 
-    <label className="myBags" ><h1>Favorite bags</h1>
+    <label className="myBags" ><h1>My Wish List:</h1>
     <br></br>
     {this.handleFaves()}
     <br></br>

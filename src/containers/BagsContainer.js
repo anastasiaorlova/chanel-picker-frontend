@@ -1,6 +1,7 @@
 import React from 'react';
 import BagsCard from '../components/BagsCard';
 import Filter from '../components/Filter';
+import ScrollingWrapper from '../components/ScrollingWrapper.jsx';
 
 class BagsContainer extends React.Component {
 
@@ -77,6 +78,7 @@ class BagsContainer extends React.Component {
     
     render() {
         return (
+            <ScrollingWrapper>
             <div className="gridBags" >
                 <h1>IF...</h1>
                 <Filter 
@@ -88,6 +90,7 @@ class BagsContainer extends React.Component {
                 />
                 {this.renderBags()}
             </div>
+            </ScrollingWrapper>
         )
     }
 }
