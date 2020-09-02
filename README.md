@@ -4,6 +4,10 @@
 
 Chanel handbag picker - an app that helps you find a perfect style of Chanel Handbag.
 
+# DEMO
+
+https://youtu.be/W2ZgL4oWR2Y
+
 # Getting Started
 
 - Clone backend repo first: https://github.com/residenttrickster/chanel-picker-backend
